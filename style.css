@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --line-border-fill: #2b2b2b;
+  --line-border-empty: #c4bcbc;
+}
+
 body {
   color: #fff;
   background-image: url('images/bg2.jpg');
@@ -15,7 +20,7 @@ body {
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
-  height: 100vh;
+  /* height: 120vh; */
   margin: 0;
 }
 
@@ -26,10 +31,93 @@ h1 {
   margin: 30px;
 }
 
-.container {
+/* ////////// Progress Steps ////////// */
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btn-container {
+  display: flex;
+}
+
+.progress-container {
+  /* background-color: #fff; */
+  /* color: #000000; */
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 20px;
+  width: 250px;
+  max-width: 100%;
+}
+.progress-container::before {
+  content: '';
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  /* left: 0; */
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  /* left: 0; */
+  height: 4px;
+  width: 50%;
+  z-index: -1;
+  transform: translateY(-50%);
+  transition: 1s ease;
+}
+
+.circle {
+  background-color: var(--line-border-empty);
+  border: 0;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.5s ease 0.3s;
+}
+
+.circle.active {
+  background-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 8px 30px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+}
+
+.btn:active {
+  transform: scale(1.02);
+}
+
+/* ////////// Expanding Cards ////////// */
+.card-container {
   display: flex;
   width: 90vw;
-  height: 80vh;
+  height: 65vh;
 }
 
 .column {
@@ -43,7 +131,7 @@ h1 {
   padding-top: 20px;
   transition: flex 1s ease-in-out;
   position: relative;
-  /* cursor: pointer; */
+  cursor: pointer;
   overflow: hidden;
 }
 
@@ -101,7 +189,7 @@ a:visited {
   body {
     background-repeat: repeat;
   }
-  .container {
+  .card-container {
     flex-direction: column;
     width: 100vw;
     height: 80vh;
