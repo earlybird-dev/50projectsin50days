@@ -44,8 +44,6 @@ h1 {
 }
 
 .progress-container {
-  /* background-color: #fff; */
-  /* color: #000000; */
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -183,6 +181,11 @@ a {
 
 a:visited {
   color: #fff;
+}
+
+.column ul li:hover {
+  transform: scale(1.02);
+  /* transition: transform 0.3s linear; */
 }
 
 @media (max-width: 640px) {

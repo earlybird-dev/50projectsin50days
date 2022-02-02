@@ -1,3 +1,5 @@
+'use strict';
+
 const progressLine = document.getElementById('progress');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');

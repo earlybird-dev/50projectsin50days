@@ -1,3 +1,5 @@
+'use strict';
+
 const columns = document.querySelectorAll('.column');
 const progressLine = document.getElementById('progress');
 const prevBtn = document.getElementById('prev');
