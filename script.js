@@ -4,7 +4,7 @@ const columns = document.querySelectorAll('.column');
 const progressLine = document.getElementById('progress');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
-const circles = document.querySelectorAll('.circle');
+const circles = document.querySelectorAll('.progress-circle');
 let currentActive = 1;
 
 const removeActiveColumn = () => {
@@ -72,4 +72,33 @@ prevBtn.addEventListener('click', () => {
     currentActive = 1;
   }
   updateProgress();
+});
+
+/* ////////// Rotating Navigation ////////// */
+
+const openBtn = document.getElementById('open');
+const closeBtn = document.getElementById('close');
+const mainContainer = document.querySelector('.main-container');
+const cornerContainer = document.querySelector('.corner-container');
+const navContainer = document.querySelector('nav');
+
+openBtn.addEventListener('click', () => {
+  mainContainer.classList.add('show-nav');
+});
+closeBtn.addEventListener('click', () => {
+  mainContainer.classList.remove('show-nav');
+});
+
+openBtn.addEventListener('click', () => {
+  cornerContainer.classList.add('show-nav');
+});
+closeBtn.addEventListener('click', () => {
+  cornerContainer.classList.remove('show-nav');
+});
+
+openBtn.addEventListener('click', () => {
+  navContainer.classList.add('show-nav');
+});
+closeBtn.addEventListener('click', () => {
+  navContainer.classList.remove('show-nav');
 });
