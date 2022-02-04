@@ -15,10 +15,11 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 50px;
   margin: 0;
+  display: relative;
 }
 
 .main-container {
-  background-color: rgb(129, 88, 88);
+  background-image: linear-gradient(90deg, rgb(107, 69, 69), rgb(128, 82, 82));
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -34,7 +35,7 @@ body {
 }
 
 .main-container.show-nav {
-  transform: rotate(-20deg);
+  transform: rotate(-25deg);
 }
 
 .corner-container {
@@ -112,6 +113,54 @@ nav ul li + li + li {
   margin-left: 30px;
 }
 
+/* ////////// Hidden Search ////////// */
+.search-container {
+  position: fixed;
+  bottom: 80px;
+  right: -50%;
+  transition: 1s linear;
+}
+
+.search-container.show-nav {
+  right: 40px;
+}
+
+.search {
+  /* display: relative; */
+  height: 50px;
+}
+
+.search .btn {
+  background-color: #fff;
+  color: var(--line-border-fill);
+  font-size: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  width: 50px;
+  border: 0;
+}
+
+.input {
+  background-color: #fff;
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  padding: 20px;
+  border: 0;
+  transition: 0.3s ease;
+}
+
+.search.active .input {
+  width: 200px;
+}
+
+.input:focus,
+.search .btn:focus {
+  outline: none;
+}
+
 /* ////////// Progress Steps ////////// */
 
 h1 {
@@ -181,7 +230,7 @@ h1 {
   transform: scale(1.3);
 }
 
-.btn {
+.step-container .btn {
   background-color: var(--line-border-fill);
   color: #fff;
   border: 0;
@@ -192,17 +241,18 @@ h1 {
   cursor: pointer;
 }
 
-.btn:disabled {
+.step-container .btn:disabled {
   background-color: var(--line-border-empty);
 }
 
-.btn:active {
+.step-container .btn:active {
   transform: scale(1.02);
 }
 
 /* ////////// Expanding Cards ////////// */
-.card-container {
+.column-container {
   display: flex;
+  gap: 1rem;
   width: 90vw;
   height: 65vh;
 }
@@ -214,8 +264,8 @@ h1 {
   background-position: center;
   filter: grayscale(100%);
   flex: 1;
-  margin: 10px;
-  padding-top: 20px;
+  /* margin: 10px; */
+  padding: 20px;
   transition: flex 1s ease-in-out;
   position: relative;
   cursor: pointer;

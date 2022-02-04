@@ -26,8 +26,10 @@ const updateProgress = () => {
     ((currentActive - 1) / (circles.length - 1)) * 100 + '%';
   if (currentActive === 1) {
     prevBtn.disabled = true;
+    nextBtn.disabled = false;
   } else if (currentActive === circles.length) {
     nextBtn.disabled = true;
+    prevBtn.disabled = false;
   } else {
     prevBtn.disabled = false;
     nextBtn.disabled = false;
@@ -81,24 +83,28 @@ const closeBtn = document.getElementById('close');
 const mainContainer = document.querySelector('.main-container');
 const cornerContainer = document.querySelector('.corner-container');
 const navContainer = document.querySelector('nav');
+const searchContainer = document.querySelector('.search-container');
 
 openBtn.addEventListener('click', () => {
   mainContainer.classList.add('show-nav');
+  cornerContainer.classList.add('show-nav');
+  navContainer.classList.add('show-nav');
+  searchContainer.classList.add('show-nav');
 });
 closeBtn.addEventListener('click', () => {
   mainContainer.classList.remove('show-nav');
-});
-
-openBtn.addEventListener('click', () => {
-  cornerContainer.classList.add('show-nav');
-});
-closeBtn.addEventListener('click', () => {
   cornerContainer.classList.remove('show-nav');
+  navContainer.classList.remove('show-nav');
+  searchContainer.classList.remove('show-nav');
 });
 
-openBtn.addEventListener('click', () => {
-  navContainer.classList.add('show-nav');
-});
-closeBtn.addEventListener('click', () => {
-  navContainer.classList.remove('show-nav');
+/* ////////// Hidden Search ////////// */
+
+const searchBtn = document.querySelector('.search .btn');
+const search = document.querySelector('.search');
+const input = document.querySelector('.input');
+
+searchBtn.addEventListener('click', () => {
+  search.classList.toggle('active');
+  input.focus();
 });
