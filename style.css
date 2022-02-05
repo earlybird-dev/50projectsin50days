@@ -15,7 +15,7 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 50px;
   margin: 0;
-  display: relative;
+  overflow: hidden;
 }
 
 .main-container {
@@ -25,7 +25,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* padding-bottom: 50px; */
+  padding-bottom: 50px;
   border: 3px solid #fff;
   border-radius: 10px;
   transform-origin: top left;
@@ -140,9 +140,10 @@ nav ul li + li + li {
   height: 50px;
   width: 50px;
   border: 0;
+  cursor: pointer;
 }
 
-.input {
+.search .input {
   background-color: #fff;
   font-size: 20px;
   height: 50px;
@@ -156,7 +157,7 @@ nav ul li + li + li {
   width: 200px;
 }
 
-.input:focus,
+.search .input:focus,
 .search .btn:focus {
   outline: none;
 }
@@ -300,13 +301,13 @@ h1 {
   transition: all 0.5s ease-in-out 0.5s;
 }
 
-.column.active li {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out 0.5s;
-}
-
 .column.non-active li {
   opacity: 0;
+}
+
+.column.active li {
+  opacity: 1;
+  transition: opacity 0s ease-in-out 1s;
 }
 
 .column.non-active a {
@@ -316,6 +317,7 @@ h1 {
 
 a {
   text-decoration: none;
+  color: #fff;
 }
 
 a:visited {
