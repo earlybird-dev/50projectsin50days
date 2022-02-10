@@ -5,7 +5,7 @@ const progressLine = document.getElementById('progress');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const circles = document.querySelectorAll('.progress-circle');
-let currentActive = 1;
+let currentActive;
 
 const removeActiveColumn = () => {
   columns.forEach(function (column) {
@@ -43,6 +43,24 @@ const updateProgress = () => {
     }
   });
 };
+
+/* ////////// Newest Active Mode////////// */
+const allDays = document.querySelectorAll('ul li a');
+console.log(allDays);
+
+for (let i = 0; i < allDays.length; i++) {
+  const day = allDays[i];
+  if (day.innerText.includes('Day x')) {
+    console.log(i);
+    currentActive = Math.floor(i / 10) + 1;
+    console.log(currentActive);
+    break;
+  } else {
+    currentActive = 1;
+  }
+}
+
+updateProgress();
 
 /* ////////// Expanding Cards ////////// */
 
