@@ -96,7 +96,7 @@ h3 {
   width: 100%;
   font-weight: bold;
   font-size: 30px;
-  transition: 0.3s ease;
+  transition: height 1s ease;
 }
 
 .text {
